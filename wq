@@ -1,0 +1,60 @@
+[33m6118b32[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/login-v2[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m195d439[m[33m ([m[1;31morigin/feature/login-v2[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m, [m[1;32mbranch-name[m[33m)[m HEAD@{1}: checkout: moving from main to feature/login-v2
+[33m6181930[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2}: checkout: moving from feature/login-v2 to main
+[33m6118b32[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/login-v2[m[33m)[m HEAD@{3}: checkout: moving from main to feature/login-v2
+[33m6181930[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: revert: Revert "mistake commit"
+[33m812744a[m HEAD@{5}: commit: mistake commit
+[33m0c4d474[m HEAD@{6}: revert: Revert "mistake commit"
+[33m59ac572[m HEAD@{7}: commit: mistake commit
+[33m8c4d3e4[m HEAD@{8}: checkout: moving from main to main
+[33m8c4d3e4[m HEAD@{9}: revert: Revert "but-321 fixed"
+[33m260de0c[m[33m ([m[1;31morigin/release/v2.0[m[33m, [m[1;32mrelease/v2.0[m[33m)[m HEAD@{10}: merge release/v2.0: Fast-forward
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{11}: checkout: moving from release/v2.0 to main
+[33m260de0c[m[33m ([m[1;31morigin/release/v2.0[m[33m, [m[1;32mrelease/v2.0[m[33m)[m HEAD@{12}: commit: but-321 fixed
+[33m195d439[m[33m ([m[1;31morigin/feature/login-v2[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m, [m[1;32mbranch-name[m[33m)[m HEAD@{13}: checkout: moving from release/v2.0 to release/v2.0
+[33m195d439[m[33m ([m[1;31morigin/feature/login-v2[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m, [m[1;32mbranch-name[m[33m)[m HEAD@{14}: checkout: moving from develop to release/v2.0
+[33m195d439[m[33m ([m[1;31morigin/feature/login-v2[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m, [m[1;32mbranch-name[m[33m)[m HEAD@{15}: checkout: moving from branch-name to develop
+[33m195d439[m[33m ([m[1;31morigin/feature/login-v2[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m, [m[1;32mbranch-name[m[33m)[m HEAD@{16}: checkout: moving from develop to branch-name
+[33m195d439[m[33m ([m[1;31morigin/feature/login-v2[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m, [m[1;32mbranch-name[m[33m)[m HEAD@{17}: commit (merge): conflict resolved
+[33m6118b32[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/login-v2[m[33m)[m HEAD@{18}: checkout: moving from feature/login-v2 to develop
+[33m9f0c372[m HEAD@{19}: commit: feature modification
+[33m27b0e18[m HEAD@{20}: checkout: moving from develop to feature/login-v2
+[33m6118b32[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/login-v2[m[33m)[m HEAD@{21}: commit: develop modification
+[33m9878131[m HEAD@{22}: checkout: moving from develop to develop
+[33m9878131[m HEAD@{23}: merge feature/payment-v2: Merge made by the 'ort' strategy.
+[33m27b0e18[m HEAD@{24}: merge feature/login-v2: Fast-forward
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{25}: checkout: moving from feature/payment-v2 to develop
+[33m7039476[m[33m ([m[1;31morigin/feature/payment-v2[m[33m, [m[1;32mfeature/payment-v2[m[33m)[m HEAD@{26}: commit: dev-b: payment module added
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{27}: checkout: moving from develop to feature/payment-v2
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{28}: checkout: moving from feature/login-v2 to develop
+[33m27b0e18[m HEAD@{29}: commit: dev-a: login v2 implement
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{30}: checkout: moving from develop to feature/login-v2
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{31}: checkout: moving from develop to develop
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{32}: merge hotfix/login-fix: Fast-forward
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{33}: checkout: moving from main to develop
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{34}: merge hotfix/login-fix: Fast-forward
+[33m5749611[m[33m ([m[1;31morigin/release/v1.0[m[33m, [m[1;32mrelease/v1.0[m[33m)[m HEAD@{35}: checkout: moving from hotfix/login-fix to main
+[33m729c806[m[33m ([m[1;31morigin/hotfix/login-fix[m[33m, [m[1;32mhotfix/login-fix[m[33m)[m HEAD@{36}: commit: hot fix issue
+[33m5749611[m[33m ([m[1;31morigin/release/v1.0[m[33m, [m[1;32mrelease/v1.0[m[33m)[m HEAD@{37}: checkout: moving from main to hotfix/login-fix
+[33m5749611[m[33m ([m[1;31morigin/release/v1.0[m[33m, [m[1;32mrelease/v1.0[m[33m)[m HEAD@{38}: checkout: moving from main to main
+[33m5749611[m[33m ([m[1;31morigin/release/v1.0[m[33m, [m[1;32mrelease/v1.0[m[33m)[m HEAD@{39}: merge release/v1.0: Fast-forward
+[33m84f7a70[m HEAD@{40}: checkout: moving from release/v1.0 to main
+[33m5749611[m[33m ([m[1;31morigin/release/v1.0[m[33m, [m[1;32mrelease/v1.0[m[33m)[m HEAD@{41}: commit: bug fix payment issue
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{42}: checkout: moving from develop to release/v1.0
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{43}: checkout: moving from main to develop
+[33m84f7a70[m HEAD@{44}: checkout: moving from release/v1.0 to main
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{45}: checkout: moving from sample to release/v1.0
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{46}: checkout: moving from release/v1.0 to sample
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{47}: checkout: moving from develop to release/v1.0
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{48}: checkout: moving from develop to develop
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{49}: merge feature/payment-service: Fast-forward
+[33m7fd6271[m[33m ([m[1;31morigin/feature/login-sesrvice[m[33m, [m[1;32mfeature/login-sesrvice[m[33m)[m HEAD@{50}: checkout: moving from feature/payment-service to develop
+[33m35a32ca[m[33m ([m[1;31morigin/feature/payment-service[m[33m, [m[1;32msample[m[33m, [m[1;32mfeature/payment-service[m[33m)[m HEAD@{51}: commit: payment service added
+[33m7fd6271[m[33m ([m[1;31morigin/feature/login-sesrvice[m[33m, [m[1;32mfeature/login-sesrvice[m[33m)[m HEAD@{52}: checkout: moving from develop to feature/payment-service
+[33m7fd6271[m[33m ([m[1;31morigin/feature/login-sesrvice[m[33m, [m[1;32mfeature/login-sesrvice[m[33m)[m HEAD@{53}: checkout: moving from develop to develop
+[33m7fd6271[m[33m ([m[1;31morigin/feature/login-sesrvice[m[33m, [m[1;32mfeature/login-sesrvice[m[33m)[m HEAD@{54}: merge feature/login-sesrvice: Fast-forward
+[33m84f7a70[m HEAD@{55}: checkout: moving from feature/login-sesrvice to develop
+[33m7fd6271[m[33m ([m[1;31morigin/feature/login-sesrvice[m[33m, [m[1;32mfeature/login-sesrvice[m[33m)[m HEAD@{56}: commit: add login service
+[33m84f7a70[m HEAD@{57}: checkout: moving from develop to feature/login-sesrvice
+[33m84f7a70[m HEAD@{58}: checkout: moving from main to develop
+[33m84f7a70[m HEAD@{59}: clone: from https://github.com/bharathiraja-15/practice_repo.git
