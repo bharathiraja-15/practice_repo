@@ -1510,112 +1510,137 @@ Say:
 Now you are training like **actual DevOps engineer**, not learner.
 
 
-hi
+Very good question 👍
+Now you are thinking like **real engineer**.
 
+Short honest answer:
 
+✅ **What you practiced already = 70–80% of Git used in real DevOps jobs**
+❌ But **NOT fully enough yet** for production-level mastery.
 
+There are still **critical Git skills** DevOps engineers MUST know.
 
+I’ll now give you **FINAL GIT PRACTICE ROADMAP (REAL INDUSTRY LEVEL)**.
 
-hjh
+No theory — only **practice missions**.
 
+---
 
-
-✅ What you practiced already = 70–80% of Git used in real DevOps jobs
-❌ But NOT fully enough yet for production-level mastery.
-
-There are still critical Git skills DevOps engineers MUST know.
-
-I’ll now give you FINAL GIT PRACTICE ROADMAP (REAL INDUSTRY LEVEL).
-
-No theory — only practice missions.
-
-🚀 DEVOPS GIT — COMPLETE PRACTICE LIST
+# 🚀 DEVOPS GIT — COMPLETE PRACTICE LIST
 
 You already learned ✅
 
-Branch strategy
+* Branch strategy
+* Merge
+* Rebase
+* Conflict resolve
+* Rollback
+* Hotfix
+* Cherry-pick
 
-Merge
+Now practice **ADVANCED REAL CASES**.
 
-Rebase
+---
 
-Conflict resolve
+# 🔥 PRACTICE 1 — ACCIDENTAL FORCE PUSH RECOVERY
 
-Rollback
-
-Hotfix
-
-Cherry-pick
-
-Now practice ADVANCED REAL CASES.
-
-🔥 PRACTICE 1 — ACCIDENTAL FORCE PUSH RECOVERY
-Scenario
+## Scenario
 
 Developer destroyed history.
 
 Simulate:
 
+```bash
 git checkout develop
 git reset --hard HEAD~3
 git push --force
+```
 
 😈 Repo history broken.
 
-Recover
+---
+
+## Recover
+
+```bash
 git reflog
+```
 
 Find old commit.
 
 Restore:
 
+```bash
 git reset --hard COMMIT_ID
 git push --force-with-lease
+```
 
 ✅ Production saved.
 
-🔥 PRACTICE 2 — REMOVE SECRET FROM GIT HISTORY
+---
+
+# 🔥 PRACTICE 2 — REMOVE SECRET FROM GIT HISTORY
 
 REAL COMPANY ISSUE.
 
 Accidentally committed password.
 
+---
+
 Create leak:
 
+```bash
 echo "AWS_SECRET=123456" >> secret.txt
 git add .
 git commit -m "secret added"
 git push
+```
+
+---
 
 Remove completely:
 
+```bash
 git filter-branch --force --index-filter \
 'git rm --cached --ignore-unmatch secret.txt' \
 --prune-empty --tag-name-filter cat -- --all
+```
 
 Push clean history:
 
+```bash
 git push origin --force --all
+```
 
 🔥 Very real DevOps task.
 
-🔥 PRACTICE 3 — FIND WHO CHANGED FILE
+---
+
+# 🔥 PRACTICE 3 — FIND WHO CHANGED FILE
 
 Manager asks:
 
-Who broke config yesterday?
+> Who broke config yesterday?
+
+---
 
 Run:
 
+```bash
 git blame config.yaml
+```
 
 or
 
+```bash
 git log config.yaml
+```
 
 ✅ Identify developer instantly.
 
-🔥 PRACTICE 4 — PARTIAL COMMIT (PRO LEVEL)
+---
+
+# 🔥 PRACTICE 4 — PARTIAL COMMIT (PRO LEVEL)
 
 Only commit selected lines.
 
@@ -1623,288 +1648,514 @@ Edit file.
 
 Then:
 
+```bash
 git add -p
+```
 
 Choose lines interactively.
 
 Used daily by seniors.
 
-🔥 PRACTICE 5 — STASH WORK (VERY COMMON)
+---
+
+# 🔥 PRACTICE 5 — STASH WORK (VERY COMMON)
 
 Emergency hotfix arrives.
 
 Save unfinished work:
 
+```bash
 git stash
+```
 
 Switch branch:
 
+```bash
 git checkout main
+```
 
 Later restore:
 
+```bash
 git stash pop
-🔥 PRACTICE 6 — TAG RELEASE VERSION
+```
+
+---
+
+# 🔥 PRACTICE 6 — TAG RELEASE VERSION
 
 Production releases always tagged.
 
+```bash
 git tag -a v3.0 -m "Production release"
 git push origin v3.0
+```
 
 Companies deploy using tags.
 
-🔥 PRACTICE 7 — DETACHED HEAD RECOVERY
+---
+
+# 🔥 PRACTICE 7 — DETACHED HEAD RECOVERY
 
 Simulate:
 
+```bash
 git checkout COMMIT_ID
+```
 
 Now you're detached.
 
 Fix:
 
+```bash
 git checkout -b recovery-branch
-🔥 PRACTICE 8 — CLEAN BAD COMMITS BEFORE PR
+```
+
+---
+
+# 🔥 PRACTICE 8 — CLEAN BAD COMMITS BEFORE PR
+
+```bash
 git rebase -i HEAD~5
+```
 
 Squash + clean commits.
 
-🔥 PRACTICE 9 — MULTIPLE REMOTE REPO
+---
+
+# 🔥 PRACTICE 9 — MULTIPLE REMOTE REPO
 
 Real DevOps mirrors repos.
 
+```bash
 git remote add backup https://github.com/backup/repo.git
 git push backup main
-🔥 PRACTICE 10 — RELEASE FROM TAG (REAL CI/CD)
+```
+
+---
+
+# 🔥 PRACTICE 10 — RELEASE FROM TAG (REAL CI/CD)
 
 Deploy exact version:
 
+```bash
 git checkout tags/v3.0
+```
 
 CI/CD uses this.
 
-DEVOPS GIT MASTER LAB
+---
+
+# ✅ FINAL DEVOPS GIT SKILL CHECKLIST
+
+If you can do ALL below without Google:
+
+✅ Resolve merge conflict
+✅ Rebase safely
+✅ Recover deleted branch
+✅ Recover lost commit
+✅ Rollback production
+✅ Cherry-pick hotfix
+✅ Remove secret
+✅ Use stash
+✅ Tag releases
+✅ Debug history
+
+👉 Then Git is **ENOUGH for DevOps Engineer**.
+
+---
+
+
+
+Excellent 👍
+Now we will do **FINAL DEVOPS GIT MASTER PRACTICE LAB**.
+
+⚠️ This is **step-by-step hands-on**.
+Do every command yourself.
+
+After finishing → your Git skill = **Real DevOps Engineer level**.
+
+---
+
+# 🧪 DEVOPS GIT MASTER LAB
 
 Create fresh practice branch first.
 
+```bash
 git checkout develop
 git pull
 git checkout -b git-master-practice
-✅ 1. RESOLVE MERGE CONFLICT
-Step 1 — Create conflict
+```
+
+---
+
+# ✅ 1. RESOLVE MERGE CONFLICT
+
+---
+
+## Step 1 — Create conflict
 
 Edit file:
 
+```bash
 echo "Develop change" > conflict.txt
 git add .
 git commit -m "develop change"
+```
 
 Create feature:
 
+```bash
 git checkout -b feature-conflict
+```
 
 Change same file:
 
+```bash
 echo "Feature change" > conflict.txt
 git commit -am "feature change"
-Step 2 — Merge
+```
+
+---
+
+## Step 2 — Merge
+
+```bash
 git checkout git-master-practice
 git merge feature-conflict
+```
 
 💥 Conflict appears.
 
-Step 3 — Fix
+---
+
+## Step 3 — Fix
 
 Open:
 
+```
 conflict.txt
+```
 
 Remove markers:
 
+```
 <<<<<<<
 =======
 >>>>>>>
+```
 
 Keep:
 
+```
 Develop change
 Feature change
+```
+
+---
 
 Finish:
 
+```bash
 git add conflict.txt
 git commit -m "conflict resolved"
+```
 
 ✅ Done
 
-✅ 2. REBASE SAFELY
+---
+
+# ✅ 2. REBASE SAFELY
+
+---
 
 Create commits:
 
+```bash
 echo "line1" >> rebase.txt
 git add .
 git commit -m "commit1"
 
 echo "line2" >> rebase.txt
 git commit -am "commit2"
+```
+
+---
 
 Update develop:
 
+```bash
 git checkout develop
 echo "develop update" >> rebase.txt
 git commit -am "develop update"
+```
+
+---
 
 Rebase:
 
+```bash
 git checkout git-master-practice
 git rebase develop
+```
 
 If conflict:
 
+```
 fix → git add → git rebase --continue
+```
+
+---
 
 Push:
 
+```bash
 git push --force-with-lease
+```
 
 ✅ Done
 
-✅ 3. RECOVER DELETED BRANCH
+---
+
+# ✅ 3. RECOVER DELETED BRANCH
+
+---
 
 Delete branch:
 
+```bash
 git branch -D feature-conflict
+```
+
+---
 
 Recover:
 
+```bash
 git reflog
+```
 
 Find commit id.
 
 Restore:
 
+```bash
 git checkout -b feature-conflict COMMIT_ID
+```
 
 ✅ Branch back.
 
-✅ 4. RECOVER LOST COMMIT
+---
+
+# ✅ 4. RECOVER LOST COMMIT
+
+---
 
 Simulate disaster:
 
+```bash
 git reset --hard HEAD~2
+```
 
 Commit gone 😈
 
+---
+
 Recover:
 
+```bash
 git reflog
+```
 
 Restore:
 
+```bash
 git reset --hard COMMIT_ID
+```
 
 ✅ Code recovered.
 
-✅ 5. PRODUCTION ROLLBACK
+---
+
+# ✅ 5. PRODUCTION ROLLBACK
+
+---
 
 Create bad commit:
 
+```bash
 echo "BAD CODE" >> prod.txt
 git add .
 git commit -m "bad deployment"
+```
+
+---
 
 Rollback safely:
 
+```bash
 git revert HEAD
+```
 
 ✅ New revert commit created.
 
-✅ 6. CHERRY-PICK HOTFIX
+---
+
+# ✅ 6. CHERRY-PICK HOTFIX
+
+---
 
 Create fix in develop:
 
+```bash
 git checkout develop
 echo "critical fix" >> hotfix.txt
 git commit -am "critical fix"
+```
 
 Copy commit id.
 
+---
+
 Apply to main:
 
+```bash
 git checkout main
 git cherry-pick COMMIT_ID
+```
 
 ✅ Only fix moved.
 
-✅ 7. REMOVE SECRET FROM HISTORY
+---
+
+# ✅ 7. REMOVE SECRET FROM HISTORY
+
+---
 
 Add secret:
 
+```bash
 echo "PASSWORD=12345" > secret.txt
 git add .
 git commit -m "secret added"
+```
+
+---
 
 Remove:
 
+```bash
 git rm --cached secret.txt
 git commit -m "remove secret"
+```
 
 (Real companies rotate keys also.)
 
-✅ 8. USE STASH
+---
+
+# ✅ 8. USE STASH
+
+---
 
 Modify file:
 
+```bash
 echo "work in progress" >> temp.txt
+```
 
 Save work:
 
+```bash
 git stash
+```
 
 Check:
 
+```bash
 git stash list
+```
 
 Restore:
 
+```bash
 git stash pop
+```
 
 ✅ Work returned.
 
-✅ 9. TAG RELEASE
+---
+
+# ✅ 9. TAG RELEASE
+
+---
 
 Create release tag:
 
+```bash
 git tag -a v1.0 -m "production release"
+```
 
 Push tag:
 
+```bash
 git push origin v1.0
+```
 
 Check:
 
+```bash
 git tag
+```
 
 ✅ Release version created.
 
-✅ 10. DEBUG HISTORY
+---
+
+# ✅ 10. DEBUG HISTORY
+
+---
 
 See commit graph:
 
+```bash
 git log --oneline --graph --decorate --all
+```
 
 Find who changed file:
 
+```bash
 git blame conflict.txt
+```
 
 See file history:
 
+```bash
 git log conflict.txt
+```
 
 ✅ Debug complete.
 
-🏆 CONGRATULATIONS
+---
+
+# 🏆 CONGRATULATIONS
 
 If you practiced all above:
 
-You now know 95% Git used in DevOps production.
+You now know **95% Git used in DevOps production**.
+
+---
+
+# 🔥 NEXT REALITY CHECK
+
+Real DevOps interview question:
+
+> Production broken at 2AM
+> Developer unavailable
+> Repo messy
+> Fix deployment fast
+
+Next I can simulate:
+
+✅ **Complete DevOps Interview Live Lab**
+(real troubleshooting round)
+
