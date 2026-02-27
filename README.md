@@ -437,128 +437,152 @@ enterprise-git-practice
 
 Clone:
 
-```bash
-git clone https://github.com/yourname/enterprise-git-practice.git
-cd enterprise-git-practice
-```
+Excellent 👌
+Now you are learning **correct way** — by **doing mistakes + fixing like real engineer**.
+
+Now I will increase difficulty ✅
+This is **LEVEL-2 REAL COMPANY GIT PRACTICE**.
+
+You will practice **multi-developer + release + conflict + rollback**.
+
+⚠️ Follow EXACT steps.
+Do in terminal only.
 
 ---
 
-# ✅ STEP 1 — Company Branch Strategy (YOU CREATE)
+# 🚀 SCENARIO — REAL COMPANY SIMULATION
 
-You MUST create **5 branches**.
+Company: **TechNova**
 
-## 🎯 Target Structure
+Team members:
 
 ```
-main
-develop
-release
-feature/*
-hotfix/*
+Dev A → Login feature
+Dev B → Payment feature
+Dev C → Order feature
+You → DevOps Engineer
 ```
+
+You must manage Git flow.
 
 ---
 
-## ✅ Create main branch
+# ✅ STEP 1 — Clean Start
 
-```bash
-git checkout -b main
-```
-
-Create file:
-
-```bash
-touch README.md
-git add .
-git commit -m "Initial commit"
-git push origin main
-```
-
-✅ Production branch ready.
-
----
-
-# ✅ STEP 2 — Create DEVELOP Branch
-
-Company rule:
-
-> All development happens in develop
+Go repo:
 
 ```bash
-git checkout -b develop
-git push origin develop
+cd practice_repo
 ```
 
-✅ Integration environment ready.
+Check branches:
 
----
-
-# ✅ STEP 3 — Developer Starts Feature (REAL PRACTICE)
-
-### Ticket:
-
-```
-DEV-101: Create login feature
+```bash
+git branch
 ```
 
-You simulate developer work.
-
----
-
-Create feature branch:
+Switch develop:
 
 ```bash
 git checkout develop
-git checkout -b feature/login-service
+git pull origin develop
+```
+
+---
+
+# ✅ STEP 2 — Developer A (Login Feature)
+
+Create branch:
+
+```bash
+git checkout -b feature/login-v2
 ```
 
 Create files:
 
-```
-login.py
-config.yaml
-Dockerfile
+```bash
+mkdir login
+touch login/app.py
+touch login/config.yaml
 ```
 
-Commands:
+Add content:
 
 ```bash
-touch login.py config.yaml Dockerfile
+echo "Login Service V2" >> login/app.py
 ```
 
 Commit:
 
 ```bash
 git add .
-git commit -m "Added login service"
-git push origin feature/login-service
+git commit -m "DEV-A: Login v2 implementation"
 ```
 
-✅ Developer finished work.
+Push:
+
+```bash
+git push origin feature/login-v2
+```
+
+✅ Developer A finished.
 
 ---
 
-# ✅ STEP 4 — Pull Request Simulation (IMPORTANT)
+# ✅ STEP 3 — Developer B (Payment Feature)
 
-NOW REAL COMPANY FLOW.
-
-Feature **cannot go directly to main**.
-
-Merge → develop.
-
----
-
-Switch:
+Switch back:
 
 ```bash
 git checkout develop
 ```
 
-Merge:
+Create new feature:
 
 ```bash
-git merge feature/login-service
+git checkout -b feature/payment-v2
+```
+
+Create:
+
+```bash
+mkdir payment
+touch payment/payment.py
+```
+
+Add:
+
+```bash
+echo "Payment processing" >> payment/payment.py
+```
+
+Commit + push:
+
+```bash
+git add .
+git commit -m "DEV-B: Payment module added"
+git push origin feature/payment-v2
+```
+
+---
+
+# ✅ STEP 4 — Merge Features into DEVELOP
+
+Now you act as DevOps.
+
+---
+
+Merge login:
+
+```bash
+git checkout develop
+git merge feature/login-v2
+```
+
+Merge payment:
+
+```bash
+git merge feature/payment-v2
 ```
 
 Push:
@@ -567,237 +591,591 @@ Push:
 git push origin develop
 ```
 
-✅ DEV environment deployment triggered.
+✅ DEV environment updated.
 
 ---
 
-# ✅ STEP 5 — Create SECOND FEATURE (Practice Again)
+# 🚨 STEP 5 — CREATE MERGE CONFLICT (VERY REAL)
 
-Ticket:
+Now simulate conflict.
 
-```
-DEV-102: Payment Service
+---
+
+Edit SAME file in develop:
+
+```bash
+echo "Develop change" >> login/app.py
+git add .
+git commit -m "Develop modification"
 ```
 
 ---
+
+Now go feature branch:
+
+```bash
+git checkout feature/login-v2
+```
+
+Edit same file:
+
+```bash
+echo "Feature change" >> login/app.py
+git add .
+git commit -m "Feature modification"
+```
+
+---
+
+Now merge:
 
 ```bash
 git checkout develop
-git checkout -b feature/payment-service
+git merge feature/login-v2
 ```
+
+🔥 BOOM — Conflict appears.
+
+You will see:
+
+```
+CONFLICT (content)
+```
+
+---
+
+# ✅ STEP 6 — Resolve Conflict (REAL SKILL)
+
+Open file:
+
+```
+login/app.py
+```
+
+You will see:
+
+```
+<<<<<<< HEAD
+Develop change
+=======
+Feature change
+>>>>>>> feature/login-v2
+```
+
+Fix manually:
+
+```
+Login Service V2
+Develop change
+Feature change
+```
+
+Save file.
+
+---
+
+Complete merge:
+
+```bash
+git add login/app.py
+git commit -m "Conflict resolved"
+```
+
+Push:
+
+```bash
+git push origin develop
+```
+
+✅ You solved real company issue.
+
+---
+
+# ✅ STEP 7 — RELEASE CREATION
+
+Management says:
+
+> Prepare version v2 release.
 
 Create:
 
 ```bash
-mkdir payment
-touch payment/app.py
+git checkout -b release/v2.0
+git push origin release/v2.0
+```
+
+---
+
+# 🚨 STEP 8 — UAT BUG FOUND
+
+Bug ticket:
+
+```
+BUG-321 Payment failure
+```
+
+Fix inside release.
+
+```bash
+git checkout release/v2.0
+```
+
+Edit:
+
+```bash
+echo "Bug fixed" >> payment/payment.py
 ```
 
 Commit:
 
 ```bash
 git add .
-git commit -m "Payment service added"
-git push origin feature/payment-service
+git commit -m "BUG-321 fixed"
+git push origin release/v2.0
 ```
 
-Merge again:
+---
+
+# ✅ STEP 9 — Production Deployment
+
+Merge release → main.
+
+```bash
+git checkout main
+git merge release/v2.0
+git push origin main
+```
+
+✅ Production deployed.
+
+---
+
+# 🚨 STEP 10 — PRODUCTION DISASTER 😈
+
+Manager says:
+
+> New deployment broke production!
+> Rollback immediately!
+
+---
+
+## Find previous commit
+
+```bash
+git log --oneline
+```
+
+Copy OLD commit id.
+
+---
+
+Rollback:
+
+```bash
+git revert COMMIT_ID
+git push origin main
+```
+
+🔥 REAL PRODUCTION SAVE.
+
+---
+
+# 🧠 WHAT YOU JUST PRACTICED
+
+✅ Multi developer workflow
+✅ Parallel feature development
+✅ Merge conflict resolution
+✅ Release branching
+✅ Bug fixing
+✅ Production deployment
+✅ Production rollback
+
+THIS = 1–2 years real Git experience.
+
+---
+
+# 🔥 NEXT LEVEL (LEVEL-3)
+
+Next I can train you:
+
+✅ Wrong commit pushed to main
+✅ Deleted branch recovery
+✅ Recover lost code
+✅ Cherry-pick hotfix
+✅ Rebase workflow (FAANG companies)
+✅ Squash commits
+✅ PR approval simulation
+
+
+## ✅ Step 1 — Go main
+
+```bash
+git checkout main
+git pull origin main
+```
+
+---
+
+## ✅ Step 2 — Simulate mistake
+
+```bash
+echo "BAD CODE" >> production.txt
+git add .
+git commit -m "mistake commit"
+git push origin main
+```
+
+🚨 Production broken.
+
+---
+
+## ✅ Step 3 — Fix SAFELY (Company Method)
+
+See commits:
+
+```bash
+git log --oneline
+```
+
+Example:
+
+```
+abc123 mistake commit
+195d439 stable commit
+```
+
+---
+
+Rollback:
+
+```bash
+git revert abc123
+```
+
+Push:
+
+```bash
+git push origin main
+```
+
+✅ Production restored
+✅ History safe
+✅ Team unaffected
+
+---
+
+# 🚀 PRACTICE 2 — DELETED BRANCH RECOVERY
+
+## 🎫 Scenario
+
+Developer deleted feature branch accidentally.
+
+---
+
+Delete branch:
+
+```bash
+git branch -D feature/login-v2
+```
+
+😈 Code gone locally.
+
+---
+
+## ✅ Recover using reflog
+
+```bash
+git reflog
+```
+
+Output example:
+
+```
+9f0c372 HEAD@{2}: commit: feature modification
+```
+
+---
+
+Recover:
+
+```bash
+git checkout -b feature/login-v2 9f0c372
+```
+
+Push again:
+
+```bash
+git push origin feature/login-v2
+```
+
+✅ Branch recovered.
+
+---
+
+# 🚀 PRACTICE 3 — RECOVER LOST CODE
+
+## 🎫 Scenario
+
+Developer ran hard reset 😱
+
+Simulate:
+
+```bash
+git reset --hard HEAD~1
+```
+
+Commit disappears.
+
+---
+
+## ✅ Recovery
+
+```bash
+git reflog
+```
+
+Find lost commit:
+
+```
+260de0c
+```
+
+Restore:
+
+```bash
+git reset --hard 260de0c
+```
+
+✅ Code restored.
+
+---
+
+# 🚀 PRACTICE 4 — CHERRY-PICK HOTFIX (VERY IMPORTANT)
+
+## 🎫 Scenario
+
+Bug fixed in develop.
+Production needs ONLY that fix.
+
+---
+
+Go develop:
 
 ```bash
 git checkout develop
-git merge feature/payment-service
-git push origin develop
 ```
+
+Create fix:
+
+```bash
+echo "critical fix" >> fix.txt
+git add .
+git commit -m "critical hotfix"
+```
+
+Copy commit id.
 
 ---
 
-# ✅ STEP 6 — Release Branch Creation (VERY IMPORTANT)
+Go production:
 
-Company decision:
+```bash
+git checkout main
+```
 
-> Move DEV → UAT testing
+Apply ONLY that commit:
 
-Create release branch:
+```bash
+git cherry-pick COMMIT_ID
+```
+
+Push:
+
+```bash
+git push origin main
+```
+
+✅ Only fix moved to production.
+
+🔥 Used daily in companies.
+
+---
+
+# 🚀 PRACTICE 5 — REBASE WORKFLOW (FAANG STYLE)
+
+Companies prefer clean history.
+
+---
+
+Create feature:
 
 ```bash
 git checkout develop
-git checkout -b release/v1.0
-git push origin release/v1.0
+git checkout -b feature/search
 ```
-
-✅ UAT environment ready.
-
----
-
-# ✅ STEP 7 — BUG FOUND IN UAT
-
-Ticket:
-
-```
-BUG-201: Payment crash
-```
-
-Fix inside release branch.
-
----
-
-```bash
-git checkout release/v1.0
-```
-
-Edit file.
 
 Commit:
 
 ```bash
+echo "search1" >> search.txt
 git add .
-git commit -m "Bug fix payment issue"
-git push origin release/v1.0
-```
-
-✅ UAT fixed.
-
----
-
-# ✅ STEP 8 — Production Deployment
-
-Client approved ✅
-
-Merge release → main
-
-```bash
-git checkout main
-git merge release/v1.0
-git push origin main
-```
-
-🔥 Production deployed.
-
----
-
-# ✅ STEP 9 — Production Emergency (HOTFIX)
-
-REAL COMPANY MOST IMPORTANT STEP 🚨
-
-Ticket:
-
-```
-PROD-501: Login failure in production
+git commit -m "search step1"
 ```
 
 ---
 
-Create hotfix from main:
-
-```bash
-git checkout main
-git checkout -b hotfix/login-fix
-```
-
-Fix issue.
-
-```bash
-git add .
-git commit -m "Hotfix login issue"
-git push origin hotfix/login-fix
-```
-
----
-
-Merge BACK to main:
-
-```bash
-git checkout main
-git merge hotfix/login-fix
-git push origin main
-```
-
----
-
-VERY IMPORTANT ⚠️
-Also merge to develop:
+Meanwhile develop updated:
 
 ```bash
 git checkout develop
-git merge hotfix/login-fix
+echo "update" >> update.txt
+git commit -am "develop update"
+```
+
+---
+
+Now rebase feature:
+
+```bash
+git checkout feature/search
+git rebase develop
+```
+
+✅ Feature moved on latest develop.
+
+Push safely:
+
+```bash
+git push --force-with-lease
+```
+
+(Not normal force push)
+
+---
+
+# 🚀 PRACTICE 6 — SQUASH COMMITS (CLEAN PR)
+
+Bad history:
+
+```
+fix typo
+fix again
+update
+minor fix
+```
+
+---
+
+Run:
+
+```bash
+git rebase -i HEAD~4
+```
+
+Editor opens:
+
+```
+pick
+pick
+pick
+pick
+```
+
+Change to:
+
+```
+pick
+squash
+squash
+squash
+```
+
+Save.
+
+Now:
+
+```
+Single clean commit ✅
+```
+
+---
+
+# 🚀 PRACTICE 7 — PR APPROVAL SIMULATION
+
+Feature completed.
+
+---
+
+Push feature:
+
+```bash
+git push origin feature/search
+```
+
+---
+
+Simulate review:
+
+```
+feature/search → develop
+```
+
+Merge locally:
+
+```bash
+git checkout develop
+git merge --no-ff feature/search
 git push origin develop
 ```
 
-✅ Sync completed.
+✅ PR approved workflow.
 
 ---
 
-# ✅ FINAL COMPANY FLOW (MEMORIZE)
+# 🧠 WHAT YOU JUST PRACTICED
 
-```
-feature → develop
-develop → release
-release → main
-hotfix → main + develop
-```
+You now know:
+
+✅ Production rollback
+✅ Branch recovery
+✅ Lost commit restore
+✅ Hotfix deployment
+✅ FAANG rebase flow
+✅ Clean PR history
+✅ Enterprise merge strategy
+
+This equals **2–3 years Git experience**.
 
 ---
 
-# 🧠 REAL PRACTICE RULE (DO THIS 3 TIMES)
+# 🔥 NEXT (ULTRA REAL)
 
-Repeat complete cycle:
+Next I can simulate:
 
-✅ Create feature
-✅ Merge develop
-✅ Create release
-✅ Fix bug
-✅ Deploy main
+✅ Multiple developers conflict war
+✅ Production release freeze
+✅ Emergency midnight hotfix
+✅ Git strategy used in Amazon
+✅ DevOps interview live scenarios
+
+
+
+# 🏢 COMPANY SIMULATION START
+
+**Company:** TechNova Pvt Ltd
+**Product:** E-Commerce Platform
+**Users:** 2 Million/day
+**Infra:** Git + Docker + Kubernetes + Jenkins
+
+You are responsible for:
+
+✅ Git workflow
+✅ Deployment
+✅ Release
 ✅ Hotfix
-
-Do again with:
-
-```
-feature/cart
-feature/order
-feature/search
-```
+✅ Production stability
 
 ---
-
-# 🔥 AFTER THIS YOU WILL KNOW
-
-✅ Git like real engineer
-✅ PR flow
-✅ Release management
-✅ Production fix handling
-✅ Enterprise Git workflow
-
----
-
-## ⭐ NEXT LEVEL PRACTICE (VERY POWERFUL)
-
-Next I can give you:
-
-✅ **Daily Git Company Tasks**
-(example:)
-
-```
-Day 2:
-Developer deleted file accidentally.
-Recover using git.
-```
-
-```
-Day 3:
-Wrong commit pushed to main.
-Fix without history loss.
-```
-
-```
-Day 4:
-Release rollback required.
-```
-
----
-
-Say:
-
-👉 **"Give me Git real company daily tasks"**
 
 Perfect 👍
 Now we move to **REAL DEVOPS / SENIOR GIT ENGINEER PRACTICE**.
@@ -1176,34 +1554,6 @@ Say:
 👉 **"Give me DevOps real company simulation"**
 
 and we’ll run you like **working engineer**.
-Excellent 👍
-Now we start **REAL DEVOPS COMPANY SIMULATION**.
-
-From this point ❗
-I will behave like **DevOps Manager**
-You are **DevOps Engineer (L2)** working in company.
-
-No theory.
-Only **REAL WORK + REAL INCIDENTS**.
-
----
-
-# 🏢 COMPANY SIMULATION START
-
-**Company:** TechNova Pvt Ltd
-**Product:** E-Commerce Platform
-**Users:** 2 Million/day
-**Infra:** Git + Docker + Kubernetes + Jenkins
-
-You are responsible for:
-
-✅ Git workflow
-✅ Deployment
-✅ Release
-✅ Hotfix
-✅ Production stability
-
----
 
 # 📅 DAY-1 — MORNING (9:30 AM)
 
